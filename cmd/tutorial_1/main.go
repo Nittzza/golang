@@ -4,12 +4,20 @@ import "fmt"
 
 func main() {
 
-	intArr := [...]int32{1, 2, 3}
-	fmt.Println(intArr)
+	var myMap map[string]uint8 = make(map[string]uint8)
+	fmt.Println(myMap) // Prints the empty map
 
-	intSlice := []int32{4, 5, 6}
-	fmt.Printf("The length is %v with capacity %v", len(intSlice), cap(intSlice))
+	var myMap2 = map[string]uint8{"Adam": 23, "Sarah": 45}
+	fmt.Println(myMap2["Adam"])
 
-	intSlice = append(intSlice, 7)
-	fmt.Printf("\nThe length is %v with capacity %v", len(intSlice), cap(intSlice))
+	var age, ok = myMap2["Jason"]
+	if ok {
+		fmt.Printf("The age is %v", age)
+	} else {
+		fmt.Println("Invalid Name")
+	}
+
+	for name := range myMap2 {
+		fmt.Printf("Name: %v\n", name)
+	}
 }
