@@ -4,20 +4,13 @@ import "fmt"
 
 func main() {
 
-	var myMap map[string]uint8 = make(map[string]uint8)
-	fmt.Println(myMap)
+	var myString = "résumé"
 
-	var myMap2 = map[string]uint8{"Nittya": 23, "Aaditya": 45}
-	fmt.Println(myMap2["Nittya"])
+	var indexed = myString[0]
 
-	var age, ok = myMap2["Jason"]
-	if ok {
-		fmt.Printf("The age is %v", age)
-		fmt.Println("Invalid Name")
+	fmt.Printf("%v, %T\n", indexed, indexed)
 
-		for name, age := range myMap2 {
-			fmt.Printf("Name: %v, Age: %v\n", name, age)
-		}
-
+	for i, v := range myString {
+		fmt.Println(i, v)
 	}
 }
