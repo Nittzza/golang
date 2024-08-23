@@ -1,16 +1,29 @@
 package main
 
+package main
+
 import "fmt"
 
 func main() {
+    var myString = []rune("résumé")
+    var indexed = myString[1]
+    fmt.Printf("%v, %T\n", indexed, indexed)
 
-	var myString = []rune("résumé")
+    for i, v := range myString {
+        fmt.Println(i, v)
+    }
 
-	var indexed = myString[1]
+    fmt.Printf("\nThe length of 'myString' is %v", len(myString))
 
-	fmt.Printf("%v, %T\n", indexed, indexed)
+    var myRune = 'a'
+    fmt.Printf("\nmyRune = %v", myRune)
 
-	for i, v := range myString {
-		fmt.Println(i, v)
-	}
+    var strSlice = []string{"s", "u", "b", "s", "c", "r", "i", "b", "e"}
+    var catStr = ""
+
+    for i := range strSlice {
+        catStr += strSlice[i]
+    }
+
+    fmt.Printf("\n%v", catStr)
 }
