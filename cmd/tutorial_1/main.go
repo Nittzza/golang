@@ -1,29 +1,38 @@
 package main
 
-package main
-
 import "fmt"
 
+type gasEngine struct {
+	mpg     uint8
+	gallons uint8
+}
+
+type electricEngine struct {
+	mpkwh uint8
+	kwh   uint8
+}
+
+func (e gasEngine) milesLeft() uint8 {
+	return e.gallons * e.mpg
+}
+
+func (e electricEngine) milesLeft() uint8 {
+	return e.kwh * e.mpkwh
+}
+
+type engine interface {
+	milesLeft() uint8
+}
+
+func canMakeIt(e engine, miles uint8) {
+	if miles <= e.milesLeft() {
+		fmt.Println("You can make it there!")
+	} else {
+		fmt.Println("Need to fuel up first!")
+	}
+}
+
 func main() {
-    var myString = []rune("résumé")
-    var indexed = myString[1]
-    fmt.Printf("%v, %T\n", indexed, indexed)
-
-    for i, v := range myString {
-        fmt.Println(i, v)
-    }
-
-    fmt.Printf("\nThe length of 'myString' is %v", len(myString))
-
-    var myRune = 'a'
-    fmt.Printf("\nmyRune = %v", myRune)
-
-    var strSlice = []string{"s", "u", "b", "s", "c", "r", "i", "b", "e"}
-    var catStr = ""
-
-    for i := range strSlice {
-        catStr += strSlice[i]
-    }
-
-    fmt.Printf("\n%v", catStr)
+	var myEngine gasEngine = gasEngine{25, 15}
+	canMakeIt(myEngine, 50)
 }
