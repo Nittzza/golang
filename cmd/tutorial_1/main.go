@@ -12,6 +12,7 @@ func main() {
 	var result [5]float64 = square(thing1)
 
 	fmt.Printf("\nThe result is: %v", result)
+	fmt.Printf("\nThe value of thing1 is: %v", thing1)
 }
 
 func square(thing2 [5]float64) [5]float64 {
