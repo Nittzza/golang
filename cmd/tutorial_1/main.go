@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	var thing1 = [5]float64{1, 2, 3, 4, 5}
+	var thing1 = [5]float64{10, 20, 30, 40, 50} // Changed array values
 
 	fmt.Printf("\nThe memory location of the thing1 array is: %p", &thing1)
 
@@ -19,7 +19,7 @@ func square(thing2 [5]float64) [5]float64 {
 	fmt.Printf("\nThe memory location of the thing2 array is: %p", &thing2)
 
 	for i := range thing2 {
-		thing2[i] = thing2[i] * thing2[i]
+		thing2[i] = thing2[i] * 2 // Changed logic to multiply by 2 instead of squaring
 	}
 
 	return thing2
