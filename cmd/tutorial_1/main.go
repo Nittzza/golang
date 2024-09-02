@@ -5,26 +5,27 @@ import (
 )
 
 func main() {
-	var thing1 = [7]float64{5, 10, 15, 20, 25, 30, 35} // Changed array size and values
+	// Initialize the array
+	thing1 := [5]float64{1, 2, 3, 4, 5}
 
-	fmt.Printf("\nThe memory location of the thing1 array is: %p", &thing1)
+	// Print the memory location of the thing1 array
+	fmt.Printf("\nThe memory location of the thing1 array is: %p\n", &thing1)
 
-	var result [7]float64 = processArray(thing1)
+	// Call the square function and store the result
+	result := square(thing1)
 
-	fmt.Printf("\nThe result is: %v", result)
-	fmt.Printf("\nThe value of thing1 is: %v", thing1)
+	// Print the result array
+	fmt.Printf("\nThe result is: %v\n", result)
 }
 
-func processArray(thing2 [7]float64) [7]float64 {
-	fmt.Printf("\nThe memory location of the thing2 array is: %p", &thing2)
+// Function to square the elements of an array
+func square(thing2 [5]float64) [5]float64 {
+	// Print the memory location of the thing2 array
+	fmt.Printf("\nThe memory location of the thing2 array is: %p\n", &thing2)
 
+	// Square each element in the array
 	for i := range thing2 {
-		if thing2[i] > 20 {
-			thing2[i] = thing2[i] + 10 // If the value is greater than 20, add 10
-		} else {
-			thing2[i] = thing2[i] - 5 // Otherwise, subtract 5
-		}
+		thing2[i] = thing2[i] * thing2[i]
 	}
-
 	return thing2
 }
