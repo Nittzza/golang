@@ -2,30 +2,26 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
+	"time"
 )
 
+var dbData = []string{"id1", "id2", "id3", "id4", "id5"}
+
 func main() {
-	// Initialize the array
-	thing1 := [5]float64{1, 2, 3, 4, 5}
+	t0 := time.Now() // Start time
 
-	// Print the memory location of the thing1 array
-	fmt.Printf("\nThe memory location of the thing1 array is: %p\n", &thing1)
+	for i := 0; i < len(dbData); i++ {
+		dbCall(i)
+	}
 
-	// Call the square function and store the result
-	result := square(thing1)
-
-	// Print the result array
-	fmt.Printf("\nThe result is: %v\n", result)
+	fmt.Printf("\nTotal execution time: %v", time.Since(t0))
 }
 
-// Function to square the elements of an array
-func square(thing2 [5]float64) [5]float64 {
-	// Print the memory location of the thing2 array
-	fmt.Printf("\nThe memory location of the thing2 array is: %p\n", &thing2)
+func dbCall(i int) {
+	// Simulate DB call delay
+	var delay float32 = rand.Float32()*2000 + 1000 // Generate a random delay between 1000 and 3000 ms
+	time.Sleep(time.Duration(delay) * time.Millisecond)
 
-	// Square each element in the array
-	for i := range thing2 {
-		thing2[i] = thing2[i] * thing2[i]
-	}
-	return thing2
+	fmt.Println("The result from the database is:", dbData[i])
 }
